@@ -1,0 +1,10 @@
+port: 8080
+imageFolder: ./images/
+grpcEndPoint: flair-engine-grpc:6565
+mailService:
+    serive: gmail
+    sender: admin-vizcentric@gmail.com
+    testUser: admin@vizcentric.com
+    auth :
+      user: vizcentric.smtp@gmail.com
+      pass:

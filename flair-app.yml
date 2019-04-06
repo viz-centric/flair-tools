@@ -88,3 +88,15 @@ services:
             - POSTGRES_URI=flair-pgsql:5432
         ports:
         - 8002:8002
+
+    flair-cache:
+        image: flairbi/flair-cache:latest
+        labels:
+            purpose: Flair cache
+            environment: development
+        environment:
+            - CONFIG_URI=http://flair-registry:8761
+            - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
+            - SPRING_PROFILES_ACTIVE=prod
+        ports:
+            - 8769:12355

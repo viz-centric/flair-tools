@@ -43,6 +43,8 @@ services:
 
     flair-engine-grpc:
         image: flairbi/flair-engine:latest
+        hostname: engine
+        container_name: engine
         labels:
             purpose: Bankend engine for data calls
             environment: development
@@ -52,8 +54,7 @@ services:
             - JHIPSTER_SLEEP=60
             - SPRING_PROFILES_ACTIVE=oss,grpc
             - POSTGRES_URI=flair-pgsql:5432
-            - GRPC_CERT=server.crt
-            - GRPC_KEY=server.key
+            - GRPC_SSL_ENABLED=false
         ports:
         - 6565:6565
 
@@ -73,6 +74,8 @@ services:
 
     flair-bi:
         image: flairbi/flairbi:latest
+        hostname: bi
+        container_name: bi
         labels:
             purpose: Flair front end application
             environment: development
@@ -86,11 +89,14 @@ services:
             - JHIPSTER_SLEEP=120
             - SPRING_PROFILES_ACTIVE=oss
             - POSTGRES_URI=flair-pgsql:5432
+            - GRPC_SSL_ENABLED=false
         ports:
         - 8002:8002
 
     flair-cache:
         image: flairbi/flair-cache:latest
+        hostname: cache
+        container_name: cache
         labels:
             purpose: Flair cache
             environment: development

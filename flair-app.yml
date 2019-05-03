@@ -105,5 +105,6 @@ services:
             - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
             - SPRING_PROFILES_ACTIVE=prod
             - JHIPSTER_SLEEP=120
+            - GRPC_SSL_ENABLED=false
         ports:
             - 12355:12355

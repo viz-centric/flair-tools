@@ -4,17 +4,22 @@ Tools needed for simulating flair application
 
 ## Steps to follow
 
-`Optional`: Start the reverse proxy by running the below command
+`Optional`: Start the reverse proxy by running the below command. This step is required
+if SSL gRPC connection is required between services.
 
 ```sh
+docker-compose -f traefik.yml pull
 docker-compose -f traefik.yml up -d
 ```
 
 `Mandatory`: Start the flair application by running the following command
 
 ```sh
+docker-compose -f flair-app.yml pull
 docker-compose -f flair-app.yml up -d
 ```
+
+Wait approximately 5 minutes before all containers start.
 
 > **Note**: The `latest` tag is pulled down for each docker image
 
@@ -47,3 +52,8 @@ Credentials:
 > **Note**: 
 > If the application dosent seem to show up, please check if the docker containers are working as expected. If any of them are down, please raise an ISSUE in github and we will fix it for you as always :smile:
 > You can also contact us at admin@vizcentric.com
+
+## Enable SSL 
+
+It is possible to enable SSL connection between services that use gRPC, such as bi - engine - cache. In order
+to do so, please enable `GRPC_SSL_ENABLED` properties to `true` in `flair-app.yml`.

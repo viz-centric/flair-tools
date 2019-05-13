@@ -29,9 +29,9 @@ services:
             purpose: Flair config server and service discovery
             environment: development
             traefik.frontend.rule: "PathPrefixStrip: /config"
-            traefik.enable: true
+            traefik.enable: "true"
             traefik.backend: flair-registry
-            traefik.port: 8761
+            traefik.port: "8761"
         image: flairbi/flair-registry:latest
         ports:
         - 8761:8761
@@ -80,9 +80,9 @@ services:
             purpose: Flair front end application
             environment: development
             traefik.frontend.rule: "PathPrefixStrip: /flairbi"
-            traefik.enable: true
+            traefik.enable: "true"
             traefik.backend: flair-bi
-            traefik.port: 8002
+            traefik.port: "8002"
         environment:
             - CONFIG_URI=http://flair-registry:8761
             - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka

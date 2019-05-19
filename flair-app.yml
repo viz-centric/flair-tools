@@ -70,7 +70,7 @@ services:
         environment:
         - APP_CONFIG=/flair-config/application-oss.yml
         - NODE_ENV=oss-dev
-        - SLEEP_TIME=10
+        - SLEEP_TIME=60
 
     flair-bi:
         image: flairbi/flairbi:latest

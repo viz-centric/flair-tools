@@ -43,8 +43,8 @@ services:
 
     flair-engine-grpc:
         image: flairbi/flair-engine:latest
-        hostname: engine
-        container_name: engine
+        hostname: flair-engine-grpc
+        container_name: flair-engine-grpc
         labels:
             purpose: Bankend engine for data calls
             environment: development
@@ -74,8 +74,8 @@ services:
 
     flair-bi:
         image: flairbi/flairbi:latest
-        hostname: bi
-        container_name: bi
+        hostname: flair-bi
+        container_name: flair-bi
         labels:
             purpose: Flair front end application
             environment: development
@@ -95,8 +95,8 @@ services:
 
     flair-cache:
         image: flairbi/flair-cache:latest
-        hostname: cache
-        container_name: cache
+        hostname: flair-cache
+        container_name: flair-cache
         labels:
             purpose: Flair cache
             environment: development

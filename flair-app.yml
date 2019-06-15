@@ -115,4 +115,4 @@ services:
         ports:
             - "25:25"
         volumes:
-            - ./temp/flairbi/emails:/var/mail
+            - ./email:/var/mail

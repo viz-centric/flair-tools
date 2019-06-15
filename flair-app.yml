@@ -108,3 +108,11 @@ services:
             - GRPC_SSL_ENABLED=false
         ports:
             - 12355:12355
+
+    fakesmtp:
+        hostname: fakesmtp
+        image: digiplant/fake-smtp
+        ports:
+            - "25:25"
+        volumes:
+            - ./temp/flairbi/emails:/var/mail

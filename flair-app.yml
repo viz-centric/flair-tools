@@ -32,7 +32,7 @@ services:
             traefik.enable: "true"
             traefik.backend: flair-registry
             traefik.port: "8761"
-        image: flairbi/flair-registry:v1.0.0
+        image: flairbi/flair-registry:v5.0.0
         ports:
         - 8761:8761
         - 8762:8762
@@ -73,7 +73,7 @@ services:
         - SLEEP_TIME=60
 
     flair-bi:
-        image: flairbi/flairbi:v1.0.0
+        image: flairbi/flairbi:v1.0.1
         hostname: flair-bi
         container_name: flair-bi
         labels:

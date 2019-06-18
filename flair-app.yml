@@ -73,7 +73,7 @@ services:
         - SLEEP_TIME=60
 
     flair-bi:
-        image: flairbi/flairbi:v1.0.1
+        image: flairbi/flairbi:v1.0.2
         hostname: flair-bi
         container_name: flair-bi
         labels:

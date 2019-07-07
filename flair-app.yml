@@ -32,7 +32,7 @@ services:
             traefik.enable: "true"
             traefik.backend: flair-registry
             traefik.port: "8761"
-        image: flairbi/flair-registry:v5.0.0
+        image: flairbi/flair-registry:v5.0.3
         ports:
         - 8761:8761
         - 8762:8762
@@ -42,7 +42,7 @@ services:
         - BITBUCKET_URI=https://github.com/viz-centric/flair-config.git
 
     flair-engine-grpc:
-        image: flairbi/flair-engine:v1.0.0
+        image: flairbi/flair-engine:v1.1.0
         hostname: flair-engine-grpc
         container_name: flair-engine-grpc
         labels:
@@ -59,7 +59,7 @@ services:
         - 6565:6565
 
     flair-notifications:
-        image: flairbi/flair-notifications:v1.0.0
+        image: flairbi/flair-notifications:latest
         labels:
             purpose: Flair notifications
             environment: development
@@ -73,7 +73,7 @@ services:
         - SLEEP_TIME=60
 
     flair-bi:
-        image: flairbi/flairbi:v1.0.2
+        image: flairbi/flairbi:v1.1.0
         hostname: flair-bi
         container_name: flair-bi
         labels:
@@ -94,7 +94,7 @@ services:
         - 8002:8002
 
     flair-cache:
-        image: flairbi/flair-cache:v1.0.0
+        image: flairbi/flair-cache:v1.1.0
         hostname: flair-cache
         container_name: flair-cache
         labels:

@@ -32,7 +32,7 @@ services:
             traefik.enable: "true"
             traefik.backend: flair-registry
             traefik.port: "8761"
-        image: flairbi/flair-registry:v5.0.3
+        image: flairbi/flair-registry:v5.0.2
         ports:
         - 8761:8761
         - 8762:8762

@@ -60,6 +60,8 @@ services:
 
     flair-notifications:
         image: flairbi/flair-notifications:latest
+        hostname: flair-notifications
+        container_name: flair-notifications
         labels:
             purpose: Flair notifications
             environment: development
@@ -71,6 +73,7 @@ services:
         - APP_CONFIG=/flair-config/application-oss.yml
         - NODE_ENV=oss-dev
         - SLEEP_TIME=60
+        - GRPC_SSL_ENABLED=false
 
     flair-bi:
         image: flairbi/flairbi:v1.1.0

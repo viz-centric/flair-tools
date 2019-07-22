@@ -24,7 +24,8 @@ services:
         - 5984:5984
 
     flair-registry:
-        container_name: "development-flair-registry"
+        container_name: flair-registry
+        hostname: flair-registry
         labels:
             purpose: Flair config server and service discovery
             environment: development
@@ -73,6 +74,7 @@ services:
         - APP_CONFIG=/flair-config/application-oss.yml
         - NODE_ENV=oss-dev
         - SLEEP_TIME=60
+        - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
         - GRPC_SSL_ENABLED=false
 
     flair-bi:

@@ -10,6 +10,17 @@ services:
         ports:
         - 5432:5432
 
+    flair-notifications-pgsql:
+        image: postgres:9.4-alpine
+        container_name: flair-notifications-pgsql
+        hostname: flair-notifications-pgsql
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=admin
+            - POSTGRES_DB=nodeDB
+        ports:
+            - 5777:5432
+
     flair-couchdb:
         image: flairbi/couchdb:latest
         container_name: development-couchdb
@@ -73,7 +84,7 @@ services:
         - ${PWD}/config/flair-notifications:/flair-config
         environment:
         - APP_CONFIG=/flair-config/application-oss.yml
-        - NODE_ENV=oss-dev
+        - NODE_ENV=production
         - SLEEP_TIME=60
         - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
         - GRPC_SSL_ENABLED=false

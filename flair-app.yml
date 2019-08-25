@@ -72,8 +72,8 @@ services:
 
     flair-notifications:
         image: flairbi/flair-notifications:v1.0.0
-        hostname: flair-notifications
-        container_name: flair-notifications
+        hostname: FLAIR-NOTIFICATIONS
+        container_name: FLAIR-NOTIFICATIONS
         labels:
             purpose: Flair notifications
             environment: development

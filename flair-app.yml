@@ -44,7 +44,7 @@ services:
             traefik.enable: "true"
             traefik.backend: flair-registry
             traefik.port: "8761"
-        image: flairbi/flair-registry:v5.0.3
+        image: flairbi/flair-registry:v6.0.0
         ports:
         - 8761:8761
         - 8762:8762
@@ -54,7 +54,7 @@ services:
         - BITBUCKET_URI=https://github.com/viz-centric/flair-config.git
 
     flair-engine-grpc:
-        image: flairbi/flair-engine:v1.1.13
+        image: flairbi/flair-engine:v2.0.0
         hostname: flair-engine-grpc
         container_name: flair-engine-grpc
         labels:
@@ -90,7 +90,7 @@ services:
         - GRPC_SSL_ENABLED=false
 
     flair-bi:
-        image: flairbi/flairbi:v1.1.2
+        image: flairbi/flairbi:v2.0.0
         hostname: flair-bi
         container_name: flair-bi
         labels:
@@ -111,7 +111,7 @@ services:
         - 8002:8002
 
     flair-cache:
-        image: flairbi/flair-cache:v1.1.1
+        image: flairbi/flair-cache:v2.0.0
         hostname: flair-cache
         container_name: flair-cache
         labels:

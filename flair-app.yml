@@ -54,7 +54,7 @@ services:
         - BITBUCKET_URI=https://github.com/viz-centric/flair-config.git
 
     flair-engine-grpc:
-        image: flairbi/flair-engine:v2.2.0
+        image: flairbi/flair-engine:v2.4.0
         hostname: flair-engine-grpc
         container_name: flair-engine-grpc
         labels:
@@ -71,7 +71,7 @@ services:
         - 6565:6565
 
     flair-notifications:
-        image: flairbi/flair-notifications:2.1.3-SNAPSHOT.19
+        image: flairbi/flair-notifications:2.4.1
         hostname: FLAIR-NOTIFICATIONS
         container_name: FLAIR-NOTIFICATIONS
         labels:
@@ -90,7 +90,7 @@ services:
         - GRPC_SSL_ENABLED=false
 
     flair-bi:
-        image: flairbi/flairbi:v2.2.0
+        image: flairbi/flairbi:v2.4.0
         hostname: flair-bi
         container_name: flair-bi
         labels:

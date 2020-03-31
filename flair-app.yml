@@ -71,7 +71,7 @@ services:
         - 6565:6565
 
     flair-notifications:
-        image: flairbi/flair-notifications:2.5.1
+        image: flairbi/flair-notifications:2.5.2
         hostname: FLAIR-NOTIFICATIONS
         container_name: FLAIR-NOTIFICATIONS
         labels:

@@ -71,7 +71,7 @@ services:
         - 6565:6565
 
     flair-notifications:
-        image: flairbi/flair-notifications:2.5.2
+        image: flairbi/flair-notifications:2.5.5
         hostname: FLAIR-NOTIFICATIONS
         container_name: FLAIR-NOTIFICATIONS
         labels:
@@ -88,6 +88,7 @@ services:
         - SLEEP_TIME=60
         - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
         - GRPC_SSL_ENABLED=false
+        - FLAIR_ENGINE=flair-engine-grpc:6565
 
     flair-bi:
         image: flairbi/flairbi:v2.5.1

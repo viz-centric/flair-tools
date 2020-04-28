@@ -89,6 +89,7 @@ services:
         - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
         - GRPC_SSL_ENABLED=false
         - FLAIR_ENGINE=flair-engine-grpc:6565
+        - FLAIR_BI=flair-bi:8002
 
     flair-bi:
         image: flairbi/flairbi:v2.5.1

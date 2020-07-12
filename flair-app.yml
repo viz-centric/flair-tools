@@ -2,16 +2,15 @@ version: '2'
 services:
     flair-pgsql:
         container_name: "development-postgres-backend"
-        image: flairbi/postgres:dev
+        image: flairbi/postgres:11.8-dev
         environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=admin
-        - POSTGRES_DB=fbiengine
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=admin
         ports:
-        - 5432:5432
+            - 5432:5432
 
     flair-notifications-pgsql:
-        image: postgres:9.4-alpine
+        image: postgres:11
         container_name: flair-notifications-pgsql
         hostname: flair-notifications-pgsql
         environment:
@@ -32,7 +31,7 @@ services:
             - COUCHDB_USER=admin
             - COUCHDB_PASSWORD=password
         ports:
-        - 5984:5984
+            - 5984:5984
 
     flair-registry:
         container_name: flair-registry
@@ -46,12 +45,12 @@ services:
             traefik.port: "8761"
         image: flairbi/flair-registry:v7.0.0
         ports:
-        - 8761:8761
-        - 8762:8762
+            - 8761:8761
+            - 8762:8762
         environment:
-        - JHIPSTER_SLEEP=0
-        - SPRING_PROFILES_ACTIVE=prod
-        - BITBUCKET_URI=https://github.com/viz-centric/flair-config.git
+            - JHIPSTER_SLEEP=0
+            - SPRING_PROFILES_ACTIVE=prod
+            - BITBUCKET_URI=https://github.com/viz-centric/flair-config.git
 
     flair-engine-grpc:
         image: flairbi/flair-engine:v2.6.1-SNAPSHOT.ce122d9
@@ -68,7 +67,7 @@ services:
             - POSTGRES_URI=flair-pgsql:5432
             - GRPC_SSL_ENABLED=false
         ports:
-        - 6565:6565
+            - 6565:6565
 
     flair-notifications:
         image: flairbi/flair-notifications:2.5.11-SNAPSHOT.28
@@ -78,18 +77,18 @@ services:
             purpose: Flair notifications
             environment: development
         ports:
-        - 8090:8090
-        - 8091:8091
+            - 8090:8090
+            - 8091:8091
         volumes:
-        - ${PWD}/config/flair-notifications:/flair-config
+            - ${PWD}/config/flair-notifications:/flair-config
         environment:
-        - APP_CONFIG=/flair-config/application-oss.yml
-        - NODE_ENV=production
-        - SLEEP_TIME=60
-        - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
-        - GRPC_SSL_ENABLED=false
-        - FLAIR_ENGINE=flair-engine-grpc:6565
-        - FLAIR_BI=flair-bi:8002
+            - APP_CONFIG=/flair-config/application-oss.yml
+            - NODE_ENV=production
+            - SLEEP_TIME=60
+            - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
+            - GRPC_SSL_ENABLED=false
+            - FLAIR_ENGINE=flair-engine-grpc:6565
+            - FLAIR_BI=flair-bi:8002
 
     flair-bi:
         image: flairbi/flairbi:v2.7.0-SNAPSHOT.5c50e4e5
@@ -104,13 +103,14 @@ services:
             traefik.port: "8002"
         environment:
             - CONFIG_URI=http://flair-registry:8761
+            - COUCHDB_URL=http://flair-couchdb:5984
             - EUREKA_URL=http://admin:admin@flair-registry:8761/eureka
             - JHIPSTER_SLEEP=120
-            - SPRING_PROFILES_ACTIVE=oss
+            - SPRING_PROFILES_ACTIVE=dev
             - POSTGRES_URI=flair-pgsql:5432
             - GRPC_SSL_ENABLED=false
         ports:
-        - 8002:8002
+            - 8002:8002
 
     flair-cache:
         image: flairbi/flair-cache:v2.6.1-SNAPSHOT.c07114e

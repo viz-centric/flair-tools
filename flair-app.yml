@@ -91,7 +91,7 @@ services:
             - FLAIR_BI=flair-bi:8002
 
     flair-bi:
-        image: flairbi/flairbi:v2.7.0-SNAPSHOT.5c50e4e5
+        image: flairbi/flairbi:v2.7.0-SNAPSHOT.f1340f70
         hostname: flair-bi
         container_name: flair-bi
         labels:

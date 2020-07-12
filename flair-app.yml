@@ -53,7 +53,7 @@ services:
             - BITBUCKET_URI=https://github.com/viz-centric/flair-config.git
 
     flair-engine-grpc:
-        image: flairbi/flair-engine:v2.6.1-SNAPSHOT.ce122d9
+        image: flairbi/flair-engine:v2.6.1-SNAPSHOT.1c8b3b3
         hostname: flair-engine-grpc
         container_name: flair-engine-grpc
         labels:
